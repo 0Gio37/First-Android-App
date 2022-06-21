@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <dimen name="main_title_text">32dp</dimen>
+    <dimen name="main_title_welcome">32dp</dimen>
+    <dimen name="main_title_view">16dp</dimen>
     <dimen name="margin_medium">16dp</dimen>
     <dimen name="margin_small">4dp</dimen>
     <dimen name="margin_big">32dp</dimen>

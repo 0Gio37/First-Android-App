@@ -1,11 +1,12 @@
 <resources>
     <string name="app_name">First Application</string>
-    <string name="main_titre">Welcome You !</string>
-    <string name="titre_film1">Once upon a time in USA</string>
-    <string name="titre_film2">Once upon a time in Hollywood</string>
-    <string name="sortie_film1">1999</string>
-    <string name="sortie_film2">2019</string>
-    <string name="titre">Title :</string>
-    <string name="date_de_sortie">Released date :</string>
-    <string name="rechercher">Search</string>
+    <string name="main_title_welcome">Welcome You !</string>
+    <string name="main_title_view">Most Popular Movies</string>
+    <string name="title_movie1">Once upon a time in USA</string>
+    <string name="title_movie2">Once upon a time in Hollywood</string>
+    <string name="release_movie1">1999</string>
+    <string name="release_movie2">2019</string>
+    <string name="word_title">Title :</string>
+    <string name="word_released">Released date :</string>
+    <string name="word_search">Search</string>
 </resources>

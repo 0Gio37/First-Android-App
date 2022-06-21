@@ -12,20 +12,26 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="wrap_content"
+        <TextView
+            android:id="@+id/tex_view_welcome"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:layout_marginBottom="@dimen/margin_medium">
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/main_title_welcome"
+            android:textAlignment="center"
+            android:textSize="@dimen/main_title_welcome"
+            android:textStyle="bold"
+            tools:ignore="SpUsage" />
 
-            <TextView
-                android:id="@+id/tex_view"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/main_titre"
-                android:textSize="@dimen/main_title_text"
-                tools:ignore="SpUsage" />
-        </LinearLayout>
+        <TextView
+            android:id="@+id/text_view_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/margin_medium"
+            android:text="@string/main_title_view"
+            android:textAlignment="textStart"
+            android:textSize="@dimen/main_title_view"
+            tools:ignore="SpUsage" />
 
 
         <LinearLayout
@@ -54,12 +60,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/titre" />
+                        android:text="@string/word_title" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/titre_film1" />
+                        android:text="@string/title_movie1" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -69,12 +75,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/date_de_sortie" />
+                        android:text="@string/word_released" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sortie_film1" />
+                        android:text="@string/release_movie1" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
@@ -105,12 +111,12 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/titre" />
+                        android:text="@string/word_title" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/titre_film2" />
+                        android:text="@string/title_movie2" />
                 </LinearLayout>
 
                 <LinearLayout
@@ -120,23 +126,17 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/date_de_sortie" />
+                        android:text="@string/word_released" />
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="@string/sortie_film2" />
+                        android:text="@string/release_movie2" />
                 </LinearLayout>
             </LinearLayout>
         </LinearLayout>
+
     </LinearLayout>
-
-
-
-
-
-
-
 
     <Button
         android:layout_width="wrap_content"
@@ -144,12 +144,7 @@
         android:layout_alignParentEnd="true"
         android:layout_alignParentBottom="true"
         android:layout_margin="@dimen/margin_medium"
-        android:background="#FF0000"
-        android:text="@string/rechercher" />
-
-
-
-
-
+        android:backgroundTint="@color/colorAccent"
+        android:text="@string/word_search" />
 
 </RelativeLayout>
