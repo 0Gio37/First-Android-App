@@ -1,3 +1,9 @@
 <resources>
     <string name="app_name">First Application</string>
+    <string name="main_titre">Bienvnue Toi !!</string>
+    <string name="titre_film1">Il était une fois l"Amérique</string>
+    <string name="titre_film2">Il était une fois Hollywood</string>
+    <string name="sortie_film1">1999</string>
+    <string name="sortie_film2">2019</string>
+
 </resources>
