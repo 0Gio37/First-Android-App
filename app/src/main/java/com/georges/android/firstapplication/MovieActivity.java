@@ -18,7 +18,10 @@ import com.georges.android.firstapplication.databinding.ActivityMovieBinding;
 public class MovieActivity extends AppCompatActivity {
 
     //private ActivityMovieBinding binding;
-    private TextView descriptionMovie;
+    private TextView mdescriptionMovie;
+
+    private Movie mMovieDetail;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,7 +29,6 @@ public class MovieActivity extends AppCompatActivity {
 
         Log.d("TAG", "MovieActivity: onCreate()");
 
-        //binding = ActivityMovieBinding.inflate(getLayoutInflater());
         setContentView(R.layout.activity_movie);
 
         Toolbar toolbar = findViewById(R.id.toolbar);
@@ -34,12 +36,12 @@ public class MovieActivity extends AppCompatActivity {
         CollapsingToolbarLayout toolBarLayout = findViewById(R.id.toolbar_layout);
         toolBarLayout.setTitle(getTitle());
 
-        descriptionMovie = findViewById(R.id.description_msg);
+        //mdescriptionMovie = (TextView)findViewById(R.id.description_msg);
         Bundle extras = getIntent().getExtras();
         if(extras != null){
             String strMessage = extras.getString("movie");
             Log.d("log", strMessage);
-            descriptionMovie.setText(strMessage);
+            //mdescriptionMovie.setText(strMessage);
         }
 
         FloatingActionButton fab = findViewById(R.id.fab);
