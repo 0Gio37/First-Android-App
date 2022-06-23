@@ -8,110 +8,164 @@
     tools:context=".MovieActivity"
     tools:showIn="@layout/activity_movie">
 
-
-
-   <LinearLayout
-       android:id="@+id/description_msg"
-       android:layout_width="match_parent"
-       android:layout_height="match_parent"
-       android:orientation="vertical">
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
        <LinearLayout
+           android:id="@+id/content_scrolling_layout_information"
            android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="horizontal"
-           >
-           <ImageView
-               android:layout_width="160dp"
-               android:layout_height="160dp"/>
+           android:layout_height="match_parent"
+           android:orientation="vertical"
+           android:visibility="invisible">
+
            <LinearLayout
                android:layout_width="match_parent"
-               android:layout_height="match_parent"
-               android:orientation="vertical"
-               >
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
-               <TextView
-                   android:layout_width="match_parent"
-                   android:layout_height="wrap_content"/>
-           </LinearLayout>
-       </LinearLayout>
-
-       <View
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="@color/colorPrimaryDark"/>
-
-       <LinearLayout
-           android:layout_width="match_parent"
-           android:layout_height="wrap_content"
-           android:orientation="vertical">
-           <TextView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"/>
-           <TextView
-               android:layout_width="match_parent"
-               android:layout_height="wrap_content"/>
-           <Button
-               android:layout_width="wrap_content"
                android:layout_height="wrap_content"
-               android:layout_gravity="center">
-           </Button>
+               android:orientation="horizontal"
+               android:layout_marginBottom="4dp"
+               android:paddingTop="4dp"
+               >
+               <ImageView
+                   android:id="@+id/image_view_movie_picture"
+                   android:layout_width="160dp"
+                   android:layout_height="160dp"/>
+               <LinearLayout
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent"
+                   android:orientation="vertical"
+                   >
+                   <TextView
+                       android:id="@+id/text_view_movie_title"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:textStyle="bold"
+                       android:layout_marginTop="16dp"
+                       android:layout_marginBottom="32dp"/>
+                   <TextView
+                       android:id="@+id/text_view_movie_released"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"
+                       android:layout_marginBottom="16dp"/>
+                   <TextView
+                       android:id="@+id/text_view_movie_genre"
+                       android:layout_width="match_parent"
+                       android:layout_height="wrap_content"/>
+               </LinearLayout>
+           </LinearLayout>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/colorPrimaryDark"/>
+
+           <LinearLayout
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:orientation="vertical"
+               android:layout_marginBottom="4dp"
+               android:paddingTop="4dp"
+               android:layout_marginLeft="@dimen/margin_medium"
+               android:layout_marginRight="@dimen/margin_medium">
+               <TextView
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"
+                   android:text="@string/about"
+                   android:textStyle="bold"/>
+               <TextView
+                   android:id="@+id/text_view_movie_plot"
+                   android:layout_width="match_parent"
+                   android:layout_height="wrap_content"/>
+               <TextView
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content"
+                   android:layout_gravity="center"
+                   android:layout_marginTop="4dp"
+                   android:layout_marginBottom="4dp"
+                   android:onClick="onClickReadMore"
+                   android:text="@string/read_more"
+                   android:textStyle="italic"
+                   android:textColor="@color/colorPrimaryDark"
+                   tools:ignore="OnClick" />
+           </LinearLayout>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/colorPrimaryDark"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginLeft="@dimen/margin_medium"
+            android:layout_marginRight="@dimen/margin_medium"
+            android:layout_marginBottom="4dp"
+            android:paddingTop="4dp">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                >
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Director"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/text_view_movie_director"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Actors"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/text_view_movie_actors"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Award"
+                    android:textStyle="bold"/>
+                <TextView
+                    android:id="@+id/text_view_movie_awards"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+            </LinearLayout>
+        </LinearLayout>
+
+           <View
+               android:layout_width="match_parent"
+               android:layout_height="1dp"
+               android:background="@color/colorPrimaryDark"/>
        </LinearLayout>
 
-       <View
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="@color/colorPrimaryDark"/>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:orientation="vertical">
-        <LinearLayout
-            android:layout_width="match_parent"
+        <ProgressBar
+            android:id="@+id/content_scrolling_layout_progress_bar"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal">
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-            <TextView
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"/>
-        </LinearLayout>
-    </LinearLayout>
-
-       <View
-           android:layout_width="match_parent"
-           android:layout_height="1dp"
-           android:background="@color/colorPrimaryDark"/>
-
-   </LinearLayout>
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:visibility="visible"/>
+    </RelativeLayout>
 
 </androidx.core.widget.NestedScrollView>

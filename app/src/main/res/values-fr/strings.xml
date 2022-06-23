@@ -1,14 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <resources>
-<string name="app_name">Ma 1ere appli</string>
-<string name="main_title_welcome">Bienvenue toi !</string>
-<string name="main_title_view">Film les plus populaires</string>
-<string name="title_movie1">Il etait une fois aux USA</string>
-<string name="title_movie2">Il etait une fois a Hollywood</string>
-<string name="release_movie1">1999</string>
-<string name="release_movie2">2019</string>
-<string name="word_title">Titre :</string>
-<string name="word_released">Date de sortie :</string>
-<string name="word_search">Rechercher</string>
+    <string name="app_name">AppliGio Mes Films</string>
+    <string name="main_title_welcome">Bienvenue toi !</string>
+    <string name="main_title_view">Film les plus populaires</string>
+    <string name="title_movie1">Il etait une fois aux USA</string>
+    <string name="title_movie2">Il etait une fois a Hollywood</string>
+    <string name="release_movie1">1999</string>
+    <string name="release_movie2">2019</string>
+    <string name="word_title">Titre :</string>
+    <string name="word_released">Date de sortie :</string>
+    <string name="word_search">Rechercher</string>
+    <string name="about">A propos de ce film</string>
+    <string name="read_more">Lire la suite</string>
+    <string name="title_activity_movie">Détails du film</string>
+    <string name="action_settings">Paramètres</string>
 </resources>
