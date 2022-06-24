@@ -4,7 +4,7 @@
     android:layout_height="match_parent"
     xmlns:tools="http://schemas.android.com/tools"
     android:orientation="vertical"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
 
     <LinearLayout
@@ -40,7 +40,6 @@
             android:layout_marginBottom="@dimen/margin_medium"
             android:background="@color/colorPrimary"
             android:padding="@dimen/margin_small"
-
             >
 
             <ImageView

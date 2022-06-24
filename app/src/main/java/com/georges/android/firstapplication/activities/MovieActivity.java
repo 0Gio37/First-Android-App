@@ -1,9 +1,13 @@
-package com.georges.android.firstapplication;
+package com.georges.android.firstapplication.activities;
 
 import android.annotation.SuppressLint;
 import android.content.Context;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.Bundle;
 
+import com.georges.android.firstapplication.R;
+import com.georges.android.firstapplication.models.Movie;
 import com.google.android.material.appbar.CollapsingToolbarLayout;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.snackbar.Snackbar;
@@ -18,11 +22,9 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import org.json.JSONException;
 
 import java.io.IOException;
+import java.util.Objects;
 
 import okhttp3.Call;
 import okhttp3.Callback;
@@ -30,20 +32,20 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
-
 public class MovieActivity extends AppCompatActivity {
 
     //private ActivityMovieBinding binding;
     private TextView mdescriptionMovie;
     private Movie mMovie;
     private OkHttpClient mOkHttpClient;
+    private String toggleFab = "ok";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_movie);
 
-        Log.d("TAG", "MovieActivity: onCreate()");
+        //Log.d("TAG", "MovieActivity: onCreate()");
 
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
@@ -53,9 +55,11 @@ public class MovieActivity extends AppCompatActivity {
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG).setAction("Action", null).show();
-            }
+                public void onClick(View view) {
+                findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+                findViewById(R.id.fab2).setVisibility(View.VISIBLE);
+                Snackbar.make(findViewById(R.id.coordinator_root), "Aie !!!", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+                }
         });
 
         //mdescriptionMovie = (TextView)findViewById(R.id.description_msg);
@@ -65,13 +69,32 @@ public class MovieActivity extends AppCompatActivity {
         //  Log.d("log", strMessage);
         //mdescriptionMovie.setText(strMessage);
         //}
-//
+
+        /* NETWORK CONNEXION  */
+        ConnectivityManager cm = (ConnectivityManager) getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo networkInfo = cm.getActiveNetworkInfo();
+        if (networkInfo != null && networkInfo.isConnected()) {
+            callAPI();
+        } else {
+            displayUserNoNetwork();
+        }
+    }
+
+    /* NO NETWORK DISPLAYING INFO METHOD */
+    private void displayUserNoNetwork() {
+        findViewById(R.id.content_scrolling_layout_progress_bar).setVisibility(View.VISIBLE);
+        findViewById(R.id.content_scrolling_layout_no_network_msg).setVisibility(View.VISIBLE);
+        Snackbar.make(findViewById(R.id.coordinator_root), "NO NETWORK ...", Snackbar.LENGTH_LONG).show();
+    }
+
+    /* REQUEST API METHOD */
+    private void callAPI() {
         mOkHttpClient = new OkHttpClient();
         Request request = new Request.Builder().url("http://www.omdbapi.com/?i=tt0076759&apikey=bf4e1adb&plot=full").build();
         mOkHttpClient.newCall(request).enqueue(new Callback() {
             @Override
             public void onFailure(@NonNull Call call, @NonNull IOException e) {
-                //TODO
+                Snackbar.make(findViewById(R.id.coordinator_root), "Erreur d'appel de chargement ...", Snackbar.LENGTH_LONG).show();
             }
             @Override
             public void onResponse(@NonNull Call call, @NonNull Response response) throws IOException {
@@ -90,6 +113,7 @@ public class MovieActivity extends AppCompatActivity {
         });
     }
 
+    /* UPDATE VIEW WITH JSON API METHOD */
     private void updateUI(String stringJson){
         Gson gson = new Gson();
         mMovie = gson.fromJson(stringJson, Movie.class);
@@ -150,5 +174,20 @@ public class MovieActivity extends AppCompatActivity {
         Log.d("TAG", "MovieActivity: onStop()");
     }
 
+//if func onclick active in activity_movie files on fab & fab2
+    public void onClickFavori(View view) {
+        Log.d("TAG63", "call func onclickfavori-folder movieactivi.java");
 
+        if(Objects.equals(toggleFab, "ok")){
+            findViewById(R.id.fab).setVisibility(View.INVISIBLE);
+            findViewById(R.id.fab2).setVisibility(View.VISIBLE);
+            Snackbar.make(findViewById(R.id.coordinator_root), "Ajouté aux favoris", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            toggleFab = "ko";
+        }else if(Objects.equals(toggleFab, "ko")){
+            findViewById(R.id.fab).setVisibility(View.VISIBLE);
+            findViewById(R.id.fab2).setVisibility(View.INVISIBLE);
+            Snackbar.make(findViewById(R.id.coordinator_root), "Retiré des favoris", Snackbar.LENGTH_LONG).setAction("Action", null).show();
+            toggleFab = "ok";
+        }
+    }
 }

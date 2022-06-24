@@ -15,4 +15,5 @@
     <string name="read_more">Lire la suite</string>
     <string name="title_activity_movie">Détails du film</string>
     <string name="action_settings">Paramètres</string>
+    <string name="no_network_information">Pas de réseau internet</string>
 </resources>

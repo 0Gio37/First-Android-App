@@ -13,6 +13,7 @@
     <string name="read_more">Read More</string>
     <string name="title_activity_movie">Details movie</string>
     <string name="action_settings">Action setting</string>
+    <string name="no_network_information">No Internet Network</string>
 
 
 </resources>

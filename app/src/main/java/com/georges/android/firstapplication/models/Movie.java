@@ -1,4 +1,4 @@
-package com.georges.android.firstapplication;
+package com.georges.android.firstapplication.models;
 
 
 import java.util.List;
